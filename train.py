@@ -8,7 +8,7 @@ from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
 import random as rd
 import matplotlib.pyplot as plt
 
-# Cargar los datos
+# Cargar los datoss
 datos_combinadosAJAHUEL_H1 = pd.read_csv('data.csv')
 y3 = datos_combinadosAJAHUEL_H1['X3'].values
 
