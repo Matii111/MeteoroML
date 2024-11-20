@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 datos_combinadosAJAHUEL_H1 = pd.read_csv('data.csv')
 y3 = datos_combinadosAJAHUEL_H1['X3'].values
 
-# Preparar los datos 
+# Preparar los datos  
 yw = []
 yt = []
 for i in range(len(y3) - 3):
