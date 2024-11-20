@@ -47,7 +47,7 @@ model.compile(optimizer='adam', loss='mse')
 model.summary()
 
 # Entrenar el modelo
-history = model.fit(yw_train, yt_train, epochs=100, validation_data=(yw_test, yt_test))
+history = model.fit(yw_train, yt_train, epochs=5, validation_data=(yw_test, yt_test))
 
 # Evaluar el modelo
 loss = model.evaluate(yw_test, yt_test)
@@ -59,7 +59,7 @@ r2 = r2_score(yt_test, predictions)
 mae = mean_absolute_error(yt_test, predictions)
 mse = mean_squared_error(yt_test, predictions)
 
-print(f'R²: {r2}')
+print(f'R^2: {r2}')
 print(f'MAE: {mae}')
 print(f'MSE: {mse}')
 
