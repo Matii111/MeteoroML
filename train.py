@@ -7,12 +7,14 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
 import random as rd
 import matplotlib.pyplot as plt
+import os
+os.environ["PYTHONIOENCODING"] = "utf-8"
 
-# Cargar los datoss
-datos_combinadosAJAHUEL_H1 = pd.read_csv('data.csv')
+# Cargar los datos
+datos_combinadosAJAHUEL_H1 = pd.read_csv('data.csv', encoding='utf-8')
 y3 = datos_combinadosAJAHUEL_H1['X3'].values
 
-# Preparar los datos  
+# Preparar los datos
 yw = []
 yt = []
 for i in range(len(y3) - 3):
@@ -47,19 +49,19 @@ model.compile(optimizer='adam', loss='mse')
 model.summary()
 
 # Entrenar el modelo
-history = model.fit(yw_train, yt_train, epochs=5, validation_data=(yw_test, yt_test))
+history = model.fit(yw_train, yt_train, epochs=14, validation_data=(yw_test, yt_test), verbose=0)
 
 # Evaluar el modelo
-loss = model.evaluate(yw_test, yt_test)
+loss = model.evaluate(yw_test, yt_test, verbose=0)
 print(f'Validation loss: {loss}')
 
 # Calcular métricas adicionales
-predictions = model.predict(yw_test)
+predictions = model.predict(yw_test,verbose=0)
 r2 = r2_score(yt_test, predictions)
 mae = mean_absolute_error(yt_test, predictions)
 mse = mean_squared_error(yt_test, predictions)
 
-print(f'R^2: {r2}')
+print(f'R²: {r2}')
 print(f'MAE: {mae}')
 print(f'MSE: {mse}')
 
