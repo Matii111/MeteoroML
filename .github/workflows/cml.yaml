@@ -40,7 +40,13 @@ jobs:
 
       - name: Verify Tcl/Tk Installation
         run: |
-          python -m tkinter || echo "Tcl/Tk is not required for headless execution."
+          try {
+            python -m tkinter
+            Write-Host "Tcl/Tk is installed and working."
+          } catch {
+            Write-Host "Tcl/Tk is not required for headless execution."
+          }
+        shell: pwsh
 
       - name: Train LSTM Model
         run: |
