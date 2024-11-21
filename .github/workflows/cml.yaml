@@ -3,7 +3,7 @@ name: Train LSTM Model
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   train:
