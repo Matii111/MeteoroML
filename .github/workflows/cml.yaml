@@ -38,6 +38,10 @@ jobs:
         env:
           PYTHONIOENCODING: utf-8
 
+      - name: Verify Tcl/Tk Installation
+        run: |
+          python -m tkinter || echo "Tcl/Tk is not required for headless execution."
+
       - name: Train LSTM Model
         run: |
           python train.py
